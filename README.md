@@ -121,6 +121,3 @@ This project is free and open-source for educational and non-commercial use.
 
 **For any queries or help, please refer to the project documentation or contact the developer.**
 
-[1](https://www.codewithfaraz.com/c/82/how-to-create-library-management-system-in-c-programming)
-[2](https://github.com/utkarshpateriya/library-management-cli)
-[3](https://www.geeksforgeeks.org/c/c-projects/)
