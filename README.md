@@ -1,7 +1,3 @@
-Here is a comprehensive README for your CLI-based Library Management System in C. This README covers setup, compilation, features, user credentials, usage instructions, and troubleshooting steps.[1][2][3]
-
-***
-
 # Library Management System (C Language) – CLI Version
 
 A comprehensive, fully-featured library management software for educational or small library use. Built using C programming concepts: functions, recursion, arrays, pointers, strings, structures, and file handling. Entirely CLI-based – no GUI, runs in any standard C console.
