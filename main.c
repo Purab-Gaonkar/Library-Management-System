@@ -331,7 +331,7 @@ void addBook() {
     printHeader("ADD NEW BOOK");
     
     if (bookCount >= MAX_BOOKS) {
-        printf("✗ Error: Maximum book limit reached!\n");
+        printf(" Error: Maximum book limit reached!\n");
         pauseScreen();
         return;
     }
@@ -516,11 +516,11 @@ void searchBook() {
             break;
         }
         default:
-            printf("\n✗ Invalid choice!\n");
+            printf("\n Invalid choice!\n");
     }
     
     if (!found && choice >= 1 && choice <= 4) {
-        printf("\n✗ No books found!\n");
+        printf("\n No books found!\n");
     }
     
     pauseScreen();
@@ -542,7 +542,7 @@ void updateBook() {
     }
     
     if (found == -1) {
-        printf("\n✗ Book not found!\n");
+        printf("\n Book not found!\n");
         pauseScreen();
         return;
     }
@@ -598,13 +598,13 @@ void deleteBook() {
     }
     
     if (found == -1) {
-        printf("\n✗ Book not found!\n");
+        printf("\n Book not found!\n");
         pauseScreen();
         return;
     }
     
     if (books[found].availableCopies < books[found].totalCopies) {
-        printf("\n✗ Cannot delete! Book has been issued to members.\n");
+        printf("\n Cannot delete! Book has been issued to members.\n");
         pauseScreen();
         return;
     }
@@ -649,7 +649,7 @@ void bookManagementMenu() {
             case 5: deleteBook(); break;
             case 6: return;
             default:
-                printf("\n✗ Invalid choice!\n");
+                printf("\n Invalid choice!\n");
                 pauseScreen();
         }
     }
@@ -659,7 +659,7 @@ void addMember() {
     printHeader("ADD NEW MEMBER");
     
     if (memberCount >= MAX_MEMBERS) {
-        printf("✗ Error: Maximum member limit reached!\n");
+        printf(" Error: Maximum member limit reached!\n");
         pauseScreen();
         return;
     }
@@ -786,11 +786,11 @@ void searchMember() {
             break;
         }
         default:
-            printf("\n✗ Invalid choice!\n");
+            printf("\n Invalid choice!\n");
     }
     
     if (!found && (choice == 1 || choice == 2)) {
-        printf("\n✗ No members found!\n");
+        printf("\n No members found!\n");
     }
     
     pauseScreen();
@@ -812,7 +812,7 @@ void updateMember() {
     }
     
     if (found == -1) {
-        printf("\n✗ Member not found!\n");
+        printf("\n Member not found!\n");
         pauseScreen();
         return;
     }
@@ -866,13 +866,13 @@ void deleteMember() {
     }
     
     if (found == -1) {
-        printf("\n✗ Member not found!\n");
+        printf("\n Member not found!\n");
         pauseScreen();
         return;
     }
     
     if (members[found].booksIssued > 0) {
-        printf("\n✗ Cannot delete! Member has issued books.\n");
+        printf("\n Cannot delete! Member has issued books.\n");
         pauseScreen();
         return;
     }
@@ -917,7 +917,7 @@ void memberManagementMenu() {
             case 5: deleteMember(); break;
             case 6: return;
             default:
-                printf("\n✗ Invalid choice!\n");
+                printf("\n Invalid choice!\n");
                 pauseScreen();
         }
     }
@@ -962,13 +962,13 @@ void issueBook() {
     }
     
     if (bookIndex == -1) {
-        printf("\n✗ Book not found!\n");
+        printf("\n Book not found!\n");
         pauseScreen();
         return;
     }
     
     if (books[bookIndex].availableCopies <= 0) {
-        printf("\n✗ Book not available! All copies issued.\n");
+        printf("\n Book not available! All copies issued.\n");
         pauseScreen();
         return;
     }
@@ -982,19 +982,19 @@ void issueBook() {
     }
     
     if (memberIndex == -1) {
-        printf("\n✗ Member not found!\n");
+        printf("\n Member not found!\n");
         pauseScreen();
         return;
     }
     
     if (members[memberIndex].booksIssued >= 3) {
-        printf("\n✗ Member has already issued maximum books (3)!\n");
+        printf("\n Member has already issued maximum books (3)!\n");
         pauseScreen();
         return;
     }
     
     if (transactionCount >= MAX_TRANSACTIONS) {
-        printf("\n✗ Transaction limit reached!\n");
+        printf("\n Transaction limit reached!\n");
         pauseScreen();
         return;
     }
@@ -1050,7 +1050,7 @@ void returnBook() {
     }
     
     if (transIndex == -1) {
-        printf("\n✗ Transaction not found or book already returned!\n");
+        printf("\n Transaction not found or book already returned!\n");
         pauseScreen();
         return;
     }
@@ -1104,7 +1104,7 @@ void returnBook() {
     printf("Return Date    : %s\n", returnStr);
     
     if (transactions[transIndex].fine > 0) {
-        printf("\n⚠ FINE: Rs. %.2f\n", transactions[transIndex].fine);
+        printf("\n FINE: Rs. %.2f\n", transactions[transIndex].fine);
         printf("  (Late by %d days)\n", 
                getDaysDifference(transactions[transIndex].dueDate, 
                                transactions[transIndex].returnDate));
@@ -1154,7 +1154,7 @@ void viewIssuedBooks() {
             time_t now = time(NULL);
             if (now > transactions[i].dueDate) {
                 int daysOverdue = getDaysDifference(transactions[i].dueDate, now);
-                printf(" ⚠ OVERDUE (%d days)", daysOverdue);
+                printf("  OVERDUE (%d days)", daysOverdue);
             }
             
             printf("\n");
@@ -1238,7 +1238,7 @@ void transactionMenu() {
             }
             case 5: return;
             default:
-                printf("\n✗ Invalid choice!\n");
+                printf("\n Invalid choice!\n");
                 pauseScreen();
         }
     }
@@ -1353,7 +1353,7 @@ void adminMenu() {
                 pauseScreen();
                 return;
             default:
-                printf("\n✗ Invalid choice!\n");
+                printf("\n Invalid choice!\n");
                 pauseScreen();
         }
     }
@@ -1385,7 +1385,7 @@ int mainMenu() {
                 pauseScreen();
                 adminMenu();
             } else {
-                printf("\n✗ Invalid credentials!\n");
+                printf("\n Invalid credentials!\n");
                 pauseScreen();
             }
             break;
@@ -1455,7 +1455,7 @@ int mainMenu() {
                                     if (now > transactions[i].dueDate) {
                                         int daysOverdue = getDaysDifference(
                                             transactions[i].dueDate, now);
-                                        printf("⚠ OVERDUE (%d days)", daysOverdue);
+                                        printf(" OVERDUE (%d days)", daysOverdue);
                                     } else {
                                         printf(" Active");
                                     }
@@ -1483,13 +1483,13 @@ int mainMenu() {
                             pauseScreen();
                             goto member_exit;
                         default:
-                            printf("\n✗ Invalid choice!\n");
+                            printf("\n Invalid choice!\n");
                             pauseScreen();
                     }
                 }
                 member_exit:;
             } else {
-                printf("\n✗ Member ID not found!\n");
+                printf("\n Member ID not found!\n");
                 pauseScreen();
             }
             break;
@@ -1497,7 +1497,7 @@ int mainMenu() {
         case 3:
             return 3;
         default:
-            printf("\n✗ Invalid choice!\n");
+            printf("\n Invalid choice!\n");
             pauseScreen();
     }
     
